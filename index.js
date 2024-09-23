@@ -12,7 +12,13 @@ const server = http.createServer((req, res) => {
     return fileName
   }
 
-  console.log(res)
+  const getFileContentOr404 = (fileName) => {
+    if (!fs.existsSync(`./static/${fileName}`)) {
+      fileName = "404.html"
+    }
+
+    return fs.readFileSync(`./static/${fileName}`, "utf-8")
+  }
 
   const fileName = fileNameOfUrl(req.url)
   if (fileName === "favicon.ico") {
@@ -21,7 +27,9 @@ const server = http.createServer((req, res) => {
     return
   }
 
-  const content = fs.readFileSync(`./static/${fileName}`, "utf-8")
+  const content = getFileContentOr404(fileName)
+
+  // const content = fs.readFileSync(`./static/${fileName}`, "utf-8")
 
   res.statusCode = 200
   res.setHeader("Content-Type", "text/html")
