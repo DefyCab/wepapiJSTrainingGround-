@@ -2,8 +2,8 @@ import http from "http"
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200
-  res.setHeader("Content-Type", "text/plain")
-  res.end("Hello fellow developer!")
+  res.setHeader("Content-Type", "text/html")
+  res.end("<h2>Hello fellow developer!</h2>")
 })
 
 const hostname = "localhost"
