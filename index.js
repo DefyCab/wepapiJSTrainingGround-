@@ -12,6 +12,8 @@ const server = http.createServer((req, res) => {
     return fileName
   }
 
+  console.log(res)
+
   const fileName = fileNameOfUrl(req.url)
   if (fileName === "favicon.ico") {
     res.statusCode = 404
