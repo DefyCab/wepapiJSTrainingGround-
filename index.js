@@ -1,13 +1,16 @@
 import express from "express"
 const app = express()
 
-app.get("/", (req, res) => {
-  const dev = {
+const db = [
+  {
     id: 1,
-    name: "Marcus Dev",
-    email: "marcus@salt.dev",
-  }
-  res.status(201).setHeader("location", `/api/developers/1`).json(dev)
+    name: "Love B",
+    email: "love@bellinder.com",
+  },
+]
+
+app.get("/", (req, res) => {
+  res.status(201).setHeader("location", `/api/developers/1`).json(db[0])
 })
 
 const port = 3000
