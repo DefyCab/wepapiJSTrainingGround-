@@ -2,7 +2,12 @@ import express from "express"
 const app = express()
 
 app.get("/", (req, res) => {
-  res.send("Hello World")
+  const dev = {
+    id: 1,
+    name: "Marcus Dev",
+    email: "marcus@salt.dev",
+  }
+  res.json(dev)
 })
 
 const port = 3000
