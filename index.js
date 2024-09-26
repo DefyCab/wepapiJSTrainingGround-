@@ -14,6 +14,7 @@ const db = [
   },
 ]
 
+app.use(express.json())
 app.get("/api/developers/:id", (req, res) => {
   const developer = db.find((developer) => developer.id == req.params.id)
   if (!developer) {
