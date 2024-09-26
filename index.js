@@ -1,12 +1,8 @@
 import express from "express"
+import morgan from "morgan"
 const app = express()
 
-const saltLogger = function (req, res, next) {
-  console.log(`salt> ${req.method} - ${req.url}`)
-  next()
-}
-
-app.use(saltLogger)
+app.use(morgan("tiny"))
 app.use(express.static("static"))
 
 app.get("/", (req, res) => {
